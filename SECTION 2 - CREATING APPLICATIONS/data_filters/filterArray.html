@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="filterLists">
+
+<head>
+    <meta charset="utf-8">
+    <title>Filter Lists</title>
+    <meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+
+    <div ng-controller="lists">
+
+        <input type="text" ng-model="findFruit">
+
+        <ul>
+            <li ng-repeat="fruit in fruits | filter:findFruit ">{{fruit}}</li>
+        </ul>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+
+    <script>
+        var myApp = angular.module('filterLists', [])
+
+         myApp.controller('lists', function ($scope) {
+
+
+            $scope.fruits = ['Kiwi', 'Banana', 'Blueberry']
+
+
+        })
+    </script>
+
+</body>
+
+</html>

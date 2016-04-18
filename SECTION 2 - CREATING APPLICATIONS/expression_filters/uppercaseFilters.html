@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="filtersApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Uppercase Filters </title>
+        <meta name="viewport" content="width=device-width">
+        <style>
+            p{
+                text-transform: capitalize;
+            }
+        </style>
+    </head>
+    <body>
+        
+    
+        
+        <p> {{ "CanadA" | lowercase }}</p>
+        <p> {{ "ireLand" | lowercase }}</p>
+        <p> {{ "FRANCE" | lowercase }}</p>
+        <p> {{ "thaILAnd" | lowercase}}</p>
+        <p> {{ "costa rIca" | lowercase }}</p>
+    
+        <script src="angular.min.js" ></script>
+        
+        <script>
+        
+            var myFiltersApp = angular.module('filtersApp', [])
+        
+        </script>
+    </body>
+</html>

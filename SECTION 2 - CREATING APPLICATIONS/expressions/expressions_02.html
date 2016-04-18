@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="expressionsApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>expressions</title>
+    <meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+
+    <div ng-controller="myController">
+        {{ message }} {{ secondMessage }}
+
+        <p> The author of " {{book.title}} " is {{book.author}}, a book about {{book.subject}}</p>
+
+        <p>Random Number: {{ randomNumber() }}</p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    
+    <script>
+        var myExpressionsApp = angular.module('expressionsApp', []);
+
+        myExpressionsApp.controller('myController', function ($scope) {
+
+
+            $scope.message = "With AngularJS expressions...";
+            $scope.secondMessage = " you can add several values!";
+
+            $scope.book = {};
+            $scope.book.author = "Carlos Solis";
+            $scope.book.title = "A Warrior's Guide to AngularJS";
+            $scope.book.subject = "AngularJS";
+
+            $scope.randomNumber = function () {
+
+                return Math.floor(Math.random() * 100);
+
+            }
+
+
+        });
+    </script>
+</body>
+
+</html>

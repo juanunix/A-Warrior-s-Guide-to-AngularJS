@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="filters">
+    <head>
+        <meta charset="utf-8">
+        <title>Currency Filters </title>
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        
+        
+        <h1>Angular Cafe</h1>
+        <hr>
+        
+        <h2>Americano: {{ 12 | currency : "USD $" }}</h2>
+        <h2>Late: {{ 12 | currency : "USD $"  }}</h2>
+    
+        <script src="angular.min.js" ></script>
+        
+        <script>
+        
+            var myFiltersApp = angular.module('filters', [])
+        
+        </script>
+    </body>
+</html>

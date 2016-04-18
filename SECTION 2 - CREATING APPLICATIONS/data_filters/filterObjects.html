@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="filterLists">
+
+<head>
+    <meta charset="utf-8">
+    <title>Filter Lists</title>
+    <meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+
+    <div ng-controller="lists">
+
+        <input type="text" ng-model="findFruit">
+
+        <ul>
+            <li ng-repeat="fruit in fruits |filter:findFruit  | orderBy:'-name' ">
+                <h2>{{fruit.name}}</h2>
+                <p>This {{fruit.color}} colored fruit is {{fruit.properties}}</p>
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+
+    <script>
+        var myApp = angular.module('filterLists', [])
+
+         myApp.controller('lists', function ($scope) {
+
+            
+            $scope.fruits = [
+                {
+                    name:'Kiwi',
+                    color:'Green',
+                    properties: 'a great source of vitamin C'
+                },
+                {
+                    name:'Banana',
+                    color:'Yellow',
+                    properties: 'rich in magnesium & potasium'
+                },
+                {
+                    name:'Blueberry',
+                    color:'Blue',
+                    properties: 'a great antioxidant'
+                },
+            ]
+
+
+        })
+    </script>
+
+</body>
+
+</html>

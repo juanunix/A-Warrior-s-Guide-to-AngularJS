@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="filters">
+
+<head>
+    <meta charset="utf-8">
+    <title>Custom Filters</title>
+    <meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+
+    <h1>{{ "abracadabra"  | changeLetter:"-":"a"}}</h1>
+
+    <script src="angular.min.js"></script>
+
+    <script>
+        var appFilter = angular.module('filters', [])
+
+        appFilter.filter('changeLetter', function () {
+
+            var changeLetterFilter = function (originalData, firstArgument, secondArgument) {
+
+                var newData = originalData.replace(RegExp(secondArgument, "g"), firstArgument) 
+ 
+                return newData;
+            };
+
+            return changeLetterFilter;
+
+        });
+    </script>
+    
+</body>
+
+</html>
