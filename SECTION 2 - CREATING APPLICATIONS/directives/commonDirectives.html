@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Directives</title>      
+    </head>
+    <body ng-app="directives">
+        
+        <input type="text" ng-model="textModel">
+           
+        <p ng-bind="textModel"></p>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+        
+        <script>
+                var directivesApp = angular.module('directives', []);
+        </script>
+    </body>
+</html>
