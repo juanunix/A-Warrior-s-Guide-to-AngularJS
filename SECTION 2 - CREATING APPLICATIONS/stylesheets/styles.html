@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Styles</title>
+    <style>
+        div{transition: all 1s}
+        img {
+            display: block;
+            margin: auto
+        }
+        
+        .questions {
+            width: 400px;
+            height: 100px;
+            margin: 30px auto;
+            background: silver;
+            padding: 20px;
+            text-align: center
+        }
+        .altClass{
+            background: #9dcb04;
+            border: dotted 2px;
+            height: 250px;
+        }
+        .altClass button{
+            background: #ce00ff;
+            border: solid 2px;
+            color: #ffffff;
+            padding: 20px;
+        }
+        h2{ width: 400px;
+            margin:auto;}
+    </style>
+</head>
+
+<body ng-app="stylesApp">
+
+
+    <div ng-controller="stylesController">
+
+        <img alt="uncertainty" ng-src="{{activeImage}}">
+        
+        <div ng-hide="hideBoxContainer" id="boxContainer">
+            <img src="img/box.png" alt="box">
+        </div>
+        
+    
+        
+        <div ng-switch="option">
+            
+            <h2 ng-switch-when="a">Happy Cat!</h2>
+            <h2 ng-switch-when="b">Bad day to be a cat in this Universe</h2>
+        
+        </div>
+        
+        <div class="questions" ng-style="angularStyles" ng-class="angularClasses" >
+            <button ng-click="optionA()">Option A</button>
+            <button ng-click="optionB()">Option B</button>
+            <hr>
+
+            <button ng-click="changeStyles()">Change Styles</button>
+            <button ng-click="changeClass()">Change Class</button>
+
+            <hr>
+            <button ng-click="hideBox()">Hide Box</button>
+            <button ng-click="showBox()">Show Box</button>
+        </div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script>
+        var myStylesApp = angular.module('stylesApp', []);
+
+        myStylesApp.controller('stylesController', function ($scope) {
+
+            $scope.activeImage = 'img/uncertainty.png'
+            
+            $scope.optionA = function () {
+                $scope.activeImage = 'img/cat1.png';
+                $scope.option = 'a'
+            }
+
+            $scope.optionB = function () {
+                $scope.activeImage = 'img/cat2.png'
+                $scope.option = 'b'
+            }
+
+            $scope.changeStyles = function () {
+                $scope.angularStyles = {
+                    width:'600px',
+                    height:'200px',
+                    borderRadius:'10px'
+                }
+            }
+
+            $scope.changeClass = function () {
+                $scope.angularClasses = 'altClass'
+            }
+
+            $scope.hideBox = function () {
+                $scope.hideBoxContainer = true
+            }
+            
+            $scope.showBox = function () {
+                $scope.hideBoxContainer = false
+            }
+
+        })
+    </script>
+
+
+</body>
+
+</html>
