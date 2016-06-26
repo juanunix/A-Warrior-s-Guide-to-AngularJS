@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Data</title>
+</head>
+
+<body ng-app="dataApp">
+
+
+    <div ng-controller="dataController">
+
+        <h1>A-Team</h1>
+        <p> {{team.story}} </p>
+
+
+        <ul>
+            <li ng-repeat="member in team.members">
+                {{member.rank}} {{member.name}} ( {{member.skill}} )
+            </li>
+        </ul>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script>
+        var myData = angular.module('dataApp', []);
+
+        myData.controller('dataController', function ($scope, $http) {
+
+
+            $scope.initialize = function () {
+
+                $http.get('data.json').
+                success(function (data) {
+
+                    $scope.team = data;
+
+                }).
+                error(function (errorInfo) {
+                    console.log(errorInfo);
+                });
+
+
+            }
+
+
+            /// this function will be called when your app start
+            $scope.initialize()
+
+        })
+    </script>
+
+
+</body>
+
+</html>

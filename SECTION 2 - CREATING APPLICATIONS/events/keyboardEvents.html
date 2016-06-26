@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Events</title>
+    <meta name="viewport" content="width=device-width">
+</head>
+
+<body ng-app="eventsApp">
+
+    <div ng-controller="eventsController">
+
+        <input type="text" ng-keydown="detectKey($event)" autofocus="true">
+        <br>
+
+        <strong>{{status}}</strong>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-touch.js"></script>
+    <script type="text/javascript">
+        var myApp = angular.module('eventsApp', []);
+
+        myApp.controller('eventsController', function ($scope) {
+
+
+            $scope.detectKey = function (e) {
+
+                switch (e.keyCode) {
+
+                case 37:
+                    $scope.status = 'Left';
+                    break;
+
+                case 38:
+                    $scope.status = 'Up';
+                    break;
+
+                case 39:
+                    $scope.status = 'Right';
+                    break;
+
+                case 40:
+                    $scope.status = 'Down';
+                    break;
+                }
+
+            }
+
+
+        })
+    </script>
+
+</body>
+
+</html>

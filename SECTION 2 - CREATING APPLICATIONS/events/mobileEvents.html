@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>AngularJS Events</title>
+    <meta name="viewport" content="width=device-width">
+
+
+    <style type="text/css">
+        #square {
+            background: red;
+            width: 100px;
+            height: 100px;
+            margin: 30px 10px;
+        }
+    </style>
+
+</head>
+
+<body ng-app="eventsApp">
+
+
+    <div ng-controller="eventsController">
+
+        <div id="square" ng-mouseenter="inside()" ng-mouseleave="outside()" ng-swipe-left="swipeToLeft()" ng-swipe-right="swipeToRight()">
+        </div>
+
+        <strong>Status: {{status}}</strong>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-touch.js"></script>
+
+    <script type="text/javascript">
+        var myApp = angular.module('eventsApp', ['ngTouch']);
+
+        myApp.controller('eventsController', function ($scope) {
+
+            $scope.status = 'zzzzz';
+
+            $scope.inside = function () {
+
+                $scope.status = 'MouseEnter active';
+
+            }
+
+            $scope.outside = function () {
+
+                $scope.status = 'MouseOver active';
+
+            }
+            $scope.swipeToLeft = function () {
+
+                $scope.status = '<-- Swipe ';
+
+            }
+
+            $scope.swipeToRight = function () {
+
+                $scope.status = 'Swipe --> ';
+
+            }
+
+
+        })
+    </script>
+
+</body>
+
+</html>

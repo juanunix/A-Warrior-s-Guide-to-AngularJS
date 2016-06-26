@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>AngularJS Events</title>
+    <meta name="viewport" content="width=device-width">
+</head>
+
+<body ng-app="eventsApp">
+
+
+    <div ng-controller="eventsController">
+
+        <button ng-click="counter()"> Click </button>
+
+        <p ng-click="counter()"> Also works on paragraphs </p>
+
+        <button ng-dblclick="counter()"> Double Click </button>
+
+        <br>
+        <br>
+
+        <strong> Click count: {{clickCounter}}</strong>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script>
+        var myApp = angular.module('eventsApp', []);
+
+        myApp.controller('eventsController', function ($scope) {
+
+            $scope.clickCounter = 0;
+
+            $scope.counter = function () {
+
+                $scope.clickCounter++
+
+            }
+
+
+        })
+    </script>
+
+</body>
+
+</html>
